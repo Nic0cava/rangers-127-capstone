@@ -1,0 +1,339 @@
+/* Home and Welcom page CSS*/
+/* html{
+    height: 100vh;
+    overflow: hidden;
+} */
+
+body{
+    background-color: #31549a;
+}
+
+/* welcome box CSS */
+.welcome-box{
+    text-align: center;
+    color: black;
+    padding: 3rem;
+}
+
+.welcome-text{
+    margin-bottom: 3rem;
+}
+
+.about-text{
+    margin-bottom: 3rem;
+}
+
+.welcome-btn{
+    margin: 1rem;
+}
+
+.box{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background: #222;
+    perspective: 1px;
+    transform-style: preserve-3d;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.section1, .section2 {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+/* https://images.unsplash.com/photo-1464802686167-b939a6910659?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c3BhY2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=700&q=60 */
+
+.section1::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: url("https://images.unsplash.com/photo-1528722828814-77b9b83aafb2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80") top center;
+    background-size: cover;
+    transform: translateZ(-1px) scale(2.2);
+    filter: blur(1px)
+}
+
+.section1::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: url("../images/AdobeStock_551238167.png") top center;
+    background-size: cover;
+}
+
+.section1 .site-title {
+    transform: translateZ(-0.5px) scale(1.5, 1.6) translate(-33%, 10%);
+}
+
+
+.section2{
+    background-image: linear-gradient(#F1F1F0, #15326B);
+}
+
+
+
+.site-title{
+    padding-bottom: 15rem;
+    top: 0%;
+    left: 50%;
+    position: absolute;
+    color: white;
+    font-size: clamp(4rem, 10vw + 0.5rem, 9rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    transform: scale(1, 1.1) translate(-50%, 10%);
+}
+
+
+/* quote CSS */
+
+.quote{
+    text-align: center;
+    color: black;
+    padding: 1rem;
+    font-size: 2.5rem;
+    font-family: "Space Mono", monospace;
+}
+
+/* add goal CSS */
+.add-goal{
+    text-align: center;
+    color: black;
+    padding: 1rem;
+}
+
+.add-goal > a {
+    color: black;
+    border-color: black;
+}
+
+/* reward image CSS */
+.reward-image{
+    margin-bottom: 5.5rem;
+    border: 2px solid black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+    animation: float 5s ease-out infinite;
+}
+
+@keyframes float{
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+.shadow-span{
+    position: absolute;
+    width: 200px;
+    height: 20px;
+    top: 74%;
+    left: 50%;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 50%; 
+    transform: translate(-50%, -50%);
+    filter: blur(3px);
+    animation: shrink 5s ease-out infinite;
+}
+
+@keyframes shrink {
+    0% { width : 50% }
+    50% { width : 30% }
+    100% { width : 50% }
+}
+
+
+
+
+
+
+/* Cards CSS*/
+
+.reward {
+    margin: auto;
+    text-align: center;
+}
+
+.goal-cards {
+    padding: 2rem;
+}
+
+.card-title{
+    text-align: center;
+}
+
+
+
+
+@media screen and (max-width: 1100px) {
+    .cardss{
+        display: grid;
+        flex-direction: column;
+        margin: auto;
+        gap: 3rem;
+    }
+
+    .goal{
+        margin: auto;
+    }
+  }
+
+
+
+.buttons {
+    margin: auto;
+}
+
+.goal {
+    min-width: 20rem;
+}
+
+.card{
+    border: solid #222;
+    background-color: #D6D9DF;
+}
+
+.check{
+    margin-right: 0.5rem;
+}
+
+.update-btn{
+    border: 2px solid black;
+}
+
+.update-btn:hover{
+    background-color: rgb(255, 225, 0);
+}
+
+.delete-btn{
+    border: 2px solid black;
+}
+
+.delete-btn:hover{
+    background-color: rgb(7, 171, 7);
+}
+
+.complete-btn{
+    border: 2px solid black;
+}
+
+.complete-btn:hover{
+    background-color: rgb(7, 171, 7);
+}
+
+
+
+/* goalform box CSS */
+
+/* create form CSS */
+
+/* exploding letters CSS */
+
+.fancy{
+    font-size: 1.8rem;
+}
+
+
+@keyframes float1 {
+    from, to {
+      transform: translateY(-0%);
+    }
+    
+    50% {    
+      transform: translateY(-3%);
+    }
+  }
+
+  .fancy span {
+    display: inline-block;
+  }
+  
+  .fancy > .outer {
+    transition: transform 350ms ease;
+  }
+  
+  .fancy:hover > .outer {
+    transition-duration: 800ms;
+  }
+  
+  .fancy:hover > .outer > .inner {
+    animation: float1 5s ease infinite;
+  }
+  
+  
+  .fancy:hover > .outer:nth-child(1) {
+    transform: translate(-80%, 60%) rotate(8deg);
+  }
+  
+  .fancy:hover > .outer:nth-child(2) {
+    transform: translate(-40%, 20%) rotate(4deg);
+  }
+  
+  .fancy:hover > .outer:nth-child(3) {
+    transform: translate(-10%, 60%) rotate(-6deg);
+  }
+  
+  .fancy:hover > .outer:nth-child(4) {
+    transform: translate(0%, 8%) rotate(-8deg);
+  }
+  
+  .fancy:hover > .outer:nth-child(5) {
+    transform: translate(0%, -20%) rotate(5deg);
+  }
+  
+  .fancy:hover > .outer:nth-child(6) {
+    transform: translate(0%, 20%) rotate(-3deg);
+  }
+  
+  .fancy:hover > .outer:nth-child(7) {
+    transform: translate(0%, -40%) rotate(-5deg);
+  }
+  
+  .fancy:hover > .outer:nth-child(8) {
+    transform: translate(0%, 15%) rotate(10deg);
+  }
+  
+  .fancy:hover > .outer:nth-child(9) {
+    transform: translate(0%, -50%) rotate(8deg);
+  }
+  
+  .fancy:hover > .outer:nth-child(10) {
+    transform: translate(0%, 15%) rotate(-6deg);
+  }
+  
+  .fancy:hover > .outer:nth-child(11) {
+    transform: translate(50%, -10%) rotate(-3deg);
+  }
+  
+  .fancy:hover > .outer:nth-child(12) {
+    transform: translate(120%, -30%) rotate(-10deg);
+  }
+
+
+  .fancy:hover > .outer:nth-child(13) {
+    transform: translate(-80%, 60%) rotate(10deg);
+  }
+  
+  .fancy:hover > .outer:nth-child(14) {
+    transform: translate(-40%, 20%) rotate(8deg);
+  }
+  
+  .fancy:hover > .outer:nth-child(15) {
+    transform: translate(0%, 8%) rotate(-6deg);
+  }
+  
+  .fancy:hover > .outer:nth-child(16) {
+    transform: translate(0%, -20%) rotate(-3deg);
+  }
+  
+  .fancy:hover > .outer:nth-child(17) {
+    transform: translate(0%, -30%) rotate(-10deg);
+  }
+
+  .fancy:hover > .outer:nth-child(18) {
+    transform: translate(-10%, -20%) rotate(8deg);
+  }

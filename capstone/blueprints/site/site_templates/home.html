@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<!-- This is the users personal home page-->
+{% if current_user.is_authenticated %}
+<div class="box">
+<div class="section1">
+        <div class="site-title">Achiever</div>
+</div>
+<div class="section2">
+
+    <div class="quote">
+        <p id="quote" class="quote-text"></p>
+        <p id="author"></p>
+    </div>
+<div class="add-goal">                                                                         
+<h5 data-value="START TRACKING A NEW GOAL!" id="goal-header" class="goal-header">WELCOME BACK TO YOUR GOALS!</h5>
+<a href="{{ url_for('site.create')}}" class="btn btn-outline-dark mt-3">Add new goal</a>      
+</div>
+
+
+<!-- Goals will show up down here! -->
+<div class="goal-cards container-fluid">
+    <div class="row mt-5 mb-5 justify-content-evenly cardss">
+        {% for goal in home %}
+        <div class="card d-flex rounded shadow w-25 p-2 goal">
+            <div class="card-body d-flex flex-column justify-content-center p-4">
+                <div id="{{goal.goal_id}} reward" class="reward" style="display: none;">
+                    <p id="{{goal.goal_id}} explode" class="fancy">Go Treat Yourself!</p>
+                    <div class="d-flex align-items-center" style="max-width:230px">
+                        <img src="{{ goal.reward }}" class="img-fluid rounded reward-image" alt="reward image">
+                        <span class="shadow-span"></span>
+                    </div>
+                </div>
+                <div id="{{ goal.goal_id }}">
+                <h5 id="goal" class="card-title">{{ goal.goal_name }}</h5>
+                <p>Actions:</p>
+                <div class="gap">
+                {% if goal.action1 != "" %}
+                <p id="action" class="card-text"><input class="check" type="checkbox">{{ goal.action1 }}</p>
+                {% else %}
+                <p id="action" class="card-text">{{ goal.action1 }}</p>
+                {% endif %}
+                {% if goal.action2 != "" %}
+                <p id="action" class="card-text"><input class="check" type="checkbox">{{ goal.action2 }}</p>
+                {% else %}
+                <p id="action" class="card-text">{{ goal.action2 }}</p>
+                {% endif %}
+                {% if goal.action3 != "" %}
+                <p id="action" class="card-text"><input class="check" type="checkbox">{{ goal.action3 }}</p>
+                {% else %}
+                <p id="action" class="card-text">{{ goal.action3 }}</p>
+                {% endif %}
+                {% if goal.action4 != "" %}
+                <p id="action" class="card-text"><input class="check" type="checkbox">{{ goal.action4 }}</p>
+                {% else %}
+                <p id="action" class="card-text">{{ goal.action4 }}</p>
+                {% endif %}
+                {% if goal.action5 != "" %}
+                <p id="action" class="card-text"><input class="check" type="checkbox">{{ goal.action5 }}</p>
+                {% else %}
+                <p id="action" class="card-text">{{ goal.action5 }}</p>
+                {% endif %}
+                </div>
+                </div>
+                <div class="mt-2 flex-row buttons">
+                    <a id="{{ goal.goal_id }} update" href="{{ url_for('site.update', id=goal.goal_id ) }}" class="card-link btn update-btn">Update</a>
+                    <a id="{{ goal.goal_id }} delete" href="{{ url_for('site.delete', id=goal.goal_id ) }}" class="card-link btn delete-btn" style="display: none;">Complete</a>
+                    <button onclick="showReward('{{goal.goal_id}}')" onclick="enhance('{{goal.goal_id}}')" id="{{ goal.goal_id }} complete" class="card-link btn complete-btn">Complete</button>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- This is the welcome page for users not signed in yet or for new users that have not yet signed up-->
+{% else %}
+<div class="box">
+    <div class="section1">
+            <div class="site-title">Achiever</div>
+    </div>
+    <div class="section2">
+    <div class="welcome-box">
+    <h1 class="welcome-text">Welcome to Achiever!</h1> 
+    <h2 class="about-text">An app that helps you achieve your goals by allowing you to keep track of them every step of the way!</h2>
+    <h3>Please Log In or Sign Up to get started!</h3> 
+    <a href="/signin" class="btn btn-outline-dark mt-3 welcome-btn">Log In</a>
+    <a href="/signup" class="btn btn-outline-dark mt-3 welcome-btn">Sign Up</a>
+    </div>  
+</div> 
+{% endif %}
+</div>
+</div>
+
+
+{% endblock content %}

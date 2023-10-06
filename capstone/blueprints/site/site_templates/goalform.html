@@ -1,0 +1,53 @@
+<form class="row g-3" method="POST">
+    {{ form.hidden_tag() }}
+    <div class="col-md-12">
+        {{ form.goal_name.label }}
+        {{form.goal_name(class='form-control mt-2', placeholder = 'Enter a goal!')}}
+        {% for error in form.goal_name.errors %}
+            <span class="err-msg">{{ error }}</span>
+        {% endfor %}
+    </div>
+    <div class="col-md-12">
+        {{ form.reward.label }}
+        {{ form.reward(class='form-control mt-2', placeholder = 'Enter a "Treat Yourself Reward" for after completing your goal!')}}
+    </div>
+    <div class="col-12">
+        {{ form.action1.label }}
+        {{ form.action1(class='form-control mt-2', placeholder = 'Enter an action towards your goal!')}}
+        {% for error in form.action1.errors %}
+            <span class="err-msg">{{ error }}</span>
+        {% endfor %}
+    </div>
+    <div class="col-12">
+        {{ form.action2.label }}
+        {{ form.action2(class='form-control mt-2', placeholder = 'Enter an action towards your goal!')}}
+        {% for error in form.action2.errors %}
+            <span class="err-msg">{{ error }}</span>
+        {% endfor %}
+    </div>
+    <div class="col-12">
+        {{ form.action3.label }}
+        {{ form.action3(class='form-control mt-2', placeholder = 'Enter an action towards your goal!')}}
+        {% for error in form.action3.errors %}
+            <span class="err-msg">{{ error }}</span>
+        {% endfor %}
+    </div>
+    <div class="col-12">
+        {{ form.action4.label }}
+        {{ form.action4(class='form-control mt-2', placeholder = 'Enter an action towards your goal!')}}
+        {% for error in form.action4.errors %}
+            <span class="err-msg">{{ error }}</span>
+        {% endfor %}
+    </div>
+    <div class="col-12">
+        {{ form.action5.label }}
+        {{ form.action5(class='form-control mt-2', placeholder = 'Enter an action towards your goal!')}}
+        {% for error in form.action5.errors %}
+            <span class="err-msg">{{ error }}</span>
+        {% endfor %}
+    </div>
+    <div class="col-12">
+        {{ form.submit(class='btn btn-outline-dark') }}
+    </div>
+
+</form>
